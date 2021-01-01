@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.nikhiljain.coroutinepermissions.CoroutinePermissions
+import com.nikhiljain.coroutinepermissions.PermissionDialogModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -14,11 +15,10 @@ class SampleFragment : Fragment(R.layout.fragment_sample) {
     private val job = Job()
     private val coroutineScope = CoroutineScope(Dispatchers.Main + job)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        askPermissions()
+//        askPermissions()
     }
 
     private fun askPermissions() {
@@ -30,9 +30,15 @@ class SampleFragment : Fragment(R.layout.fragment_sample) {
                 Manifest.permission.READ_EXTERNAL_STORAGE
             )
 
+            val permissionDialogModel = PermissionDialogModel(
+                title= "Location Permissions Required",
+                message= "Location permissions are required to use this app feature",
+                positiveButtonText= "Allow",
+                negativeButtonText= "Deny"
+            )
             val permission = Manifest.permission.ACCESS_FINE_LOCATION
             try {
-                val isGranted = coroutinePermissions.ensureSingle(permission)
+                val isGranted = coroutinePermissions.ensureSingle(permission, permissionDialogModel)
 
                 if (isGranted)
                     Toast.makeText(
@@ -54,7 +60,7 @@ class SampleFragment : Fragment(R.layout.fragment_sample) {
                 ).show()
             }
 
-            val (isGranted, missingPermissions) = coroutinePermissions.ensureMultiple(permissions)
+            val (isGranted, deniedPermissions) = coroutinePermissions.ensureMultiple(permissions)
             if (isGranted)
                 Toast.makeText(
                     requireContext(),
@@ -64,7 +70,7 @@ class SampleFragment : Fragment(R.layout.fragment_sample) {
             else
                 Toast.makeText(
                     requireContext(),
-                    "$missingPermissions permissions are not granted, Please enable it " +
+                    "$deniedPermissions permissions are not granted, Please enable it " +
                             "in settings to use this feature.",
                     Toast.LENGTH_SHORT
                 ).show()

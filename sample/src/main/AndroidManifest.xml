@@ -15,7 +15,7 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PingPong">
+        android:theme="@style/Theme.CoroutinePermissionsSample">
         <activity android:name="com.nikhiljain.sample.SampleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

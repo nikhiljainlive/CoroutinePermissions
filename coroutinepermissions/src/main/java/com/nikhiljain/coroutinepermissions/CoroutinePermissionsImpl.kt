@@ -5,9 +5,9 @@ import android.os.Build
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -16,7 +16,7 @@ import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
 internal class CoroutinePermissionsImpl(
-    private val activity: AppCompatActivity? = null,
+    private val activity: FragmentActivity? = null,
     private val fragment: Fragment? = null
 ) : CoroutinePermissions, LifecycleObserver {
     private var singlePermissionLauncher: ActivityResultLauncher<String>? = null

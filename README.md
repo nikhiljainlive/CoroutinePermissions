@@ -15,11 +15,11 @@ Kotlin
 val coroutinePermissions = CoroutinePermissions.of(this)
 ```
 
-Here in `CoroutinePermissions.of(this)`, **this** refers to either AppCompatActivity or Fragment if being called in Activity or Fragment respectively.
+Here in `CoroutinePermissions.of(this)`, **this** refers to either FragmentActivity or Fragment if being called in FragmentActivity or Fragment respectively.
 
-**NOTE:** `CoroutinePermissions.of(this)` must be called in the `CREATED` lifecycle state of Activity or Fragment otherwise the call will throw an `kotlin.IllegalStateException: Coroutine Permissions object should be instantiated in CREATED lifecycle state`.
+**NOTE:** `CoroutinePermissions.of(this)` must be called in the `CREATED` lifecycle state of FragmentActivity or Fragment otherwise the call will throw an `kotlin.IllegalStateException: Coroutine Permissions object should be instantiated in CREATED lifecycle state`.
 
-Request Single Permssion : let's take an example of fine location permission -
+Request Single Permission : let's take an example of fine location permission -
 
 Kotlin
 ```kotlin

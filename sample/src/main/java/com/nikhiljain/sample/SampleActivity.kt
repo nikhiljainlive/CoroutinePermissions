@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.nikhiljain.coroutinepermissions.CoroutinePermissions
+import com.nikhiljain.coroutinepermissions.PermissionDialogModel
 import kotlinx.coroutines.*
 
 class SampleActivity : AppCompatActivity() {
@@ -17,7 +18,7 @@ class SampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         coroutinePermissions = CoroutinePermissions.of(this)
 
-//        askPermissions()
+        askPermissions()
     }
 
     private fun askPermissions() {
@@ -27,9 +28,15 @@ class SampleActivity : AppCompatActivity() {
                 Manifest.permission.READ_EXTERNAL_STORAGE
             )
 
+            val permissionDialogModel = PermissionDialogModel(
+                title= "Location Permissions Required",
+                message= "Location permissions are required to use this app feature",
+                positiveButtonText= "Allow",
+                negativeButtonText= "Deny"
+            )
             val permission = Manifest.permission.ACCESS_FINE_LOCATION
             try {
-                val isGranted = coroutinePermissions.ensureSingle(permission)
+                val isGranted = coroutinePermissions.ensureSingle(permission, permissionDialogModel)
 
                 if (isGranted)
                     Toast.makeText(
