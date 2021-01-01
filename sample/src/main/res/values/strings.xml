@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CoroutinePermissionsSample</string>
+    <string name="hello_sample_fragment">Hello sample fragment</string>
+</resources>

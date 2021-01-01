@@ -1,0 +1,3 @@
+include ':coroutinepermissions'
+include ':sample'
+rootProject.name = "CoroutinePermissions"
