@@ -1,4 +1,6 @@
-You can raise PR for any contribution and optimization. :-)
+[![](https://jitpack.io/v/nikhiljainlive/CoroutinePermissions.svg)](https://jitpack.io/#nikhiljainlive/CoroutinePermissions)
+
+You can raise PR for any contribution and optimization. :slightly_smiling_face:
 
 # CoroutinePermissions
 
