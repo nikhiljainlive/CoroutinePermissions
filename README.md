@@ -6,6 +6,24 @@ You can raise PR for any contribution and optimization. :slightly_smiling_face:
 
 An Android Library for handling runtime permissions with the help of Kotlin Coroutines.
 
+## Adding library to your project
+
+Add it to your project build.gradle:
+```gradle
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+and into module build.gradle:
+
+```gradle
+dependencies {
+	implementation 'com.github.nikhiljainlive:CoroutinePermissions:v0.1'
+}
+```
+
 ## Usage
 
 Create an instance of `CoroutinePermissions` :
